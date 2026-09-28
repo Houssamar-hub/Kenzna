@@ -142,14 +142,18 @@ export const downloadOrderInvoicePDF = async (order) => {
 
         <!-- Calculations & Stamp -->
         <div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 20px;">
-          <!-- Seal / Guarantee -->
+          <!-- Seal / Guarantee & Barcode -->
           <div style="border: 2px dashed #b45309; border-radius: 14px; padding: 12px 18px; background: #fffbeb; width: 260px; text-align: center;">
             <div style="font-size: 11px; font-weight: 900; color: #b45309;">⭐ ضمان كنزنا للجودة 100% ⭐</div>
             <div style="font-size: 9px; color: #78350f; margin-top: 4px; line-height: 1.5;">
               منتجات طازجة ومختارة بعناية فائقة. يحق للزبون معاينة الطلب والتأكد منه عند الاستلام.
             </div>
-            <div style="margin-top: 6px; font-size: 8px; color: #a8a29e; font-family: monospace;">
-              KENZNA OFFICIAL VERIFIED RECEIPT
+            <!-- Barcode simulation -->
+            <div style="margin-top: 8px; letter-spacing: 4px; font-family: monospace; font-size: 14px; font-weight: bold; color: #451a03; background: white; padding: 4px 8px; border-radius: 6px; border: 1px solid #fed7aa;">
+              ||| | |||| || ||| | ||
+            </div>
+            <div style="margin-top: 4px; font-size: 8px; color: #a8a29e; font-family: monospace;">
+              KENZNA-${order.orderNumber}
             </div>
           </div>
 
