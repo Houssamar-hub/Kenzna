@@ -5,6 +5,7 @@ import {
   getOrderById,
   getOrders,
   updateOrderStatus,
+  trackOrder,
 } from '../controllers/orderController.js';
 import { protect, admin } from '../middleware/authMiddleware.js';
 
@@ -23,6 +24,7 @@ router.route('/')
   .get(protect, admin, getOrders);
 
 router.get('/my-orders', protect, getMyOrders);
+router.get('/track/:query', trackOrder);
 router.get('/:id', getOrderById);
 router.put('/:id/status', protect, admin, updateOrderStatus);
 

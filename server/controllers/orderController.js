@@ -210,3 +210,42 @@ export const updateOrderStatus = asyncHandler(async (req, res) => {
     throw new Error('الطلب غير موجود');
   }
 });
+
+// @desc    Track order by orderNumber or ID (Public)
+// @route   GET /api/orders/track/:query
+// @access  Public
+export const trackOrder = asyncHandler(async (req, res) => {
+  const { query } = req.params;
+  const { phone } = req.query;
+
+  const searchQuery = {
+    $or: [
+      { orderNumber: query.toUpperCase() },
+      { orderNumber: query },
+    ],
+  };
+
+  // If valid ObjectId, also check _id
+  if (query.match(/^[0-9a-fA-F]{24}$/)) {
+    searchQuery.$or.push({ _id: query });
+  }
+
+  const order = await Order.findOne(searchQuery);
+
+  if (!order) {
+    res.status(404);
+    throw new Error('لم يتم العثور على الطلب');
+  }
+
+  // If phone query provided, verify customer phone
+  if (phone && phone.trim()) {
+    const cleanUserPhone = phone.trim().replace(/\D/g, '');
+    const cleanOrderPhone = (order.customerInfo?.phone || '').replace(/\D/g, '');
+    if (cleanUserPhone && cleanOrderPhone && !cleanOrderPhone.includes(cleanUserPhone) && !cleanUserPhone.includes(cleanOrderPhone)) {
+      res.status(403);
+      throw new Error('رقم الهاتف غير مطابق لبيانات الطلب');
+    }
+  }
+
+  res.json(order);
+});

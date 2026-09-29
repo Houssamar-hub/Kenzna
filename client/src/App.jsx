@@ -23,6 +23,7 @@ import RegisterPage from './pages/RegisterPage';
 import AccountPage from './pages/AccountPage';
 import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
+import TrackOrderPage from './pages/TrackOrderPage';
 
 // Admin Pages
 import AdminDashboardPage from './pages/admin/AdminDashboardPage';
@@ -82,6 +83,7 @@ function App() {
                 <Route path="account" element={<AccountPage />} />
                 <Route path="about" element={<AboutPage />} />
                 <Route path="contact" element={<ContactPage />} />
+                <Route path="track-order" element={<TrackOrderPage />} />
               </Route>
 
               {/* Protected Admin Routes */}

@@ -61,7 +61,8 @@ const Navbar = ({ onOpenCart }) => {
     { name: 'من نحن', path: '/about' },
     { name: 'المتجر', path: '/products' },
     { name: 'العروض المميزة', path: '/products?featured=true' },
-    { name: 'التصنيفات', path: '/products#categories' },
+    { name: 'تتبع طلبك 🚚', path: '/track-order' },
+    { name: 'من نحن', path: '/about' },
     { name: 'اتصل بنا', path: '/contact' },
   ];
 
