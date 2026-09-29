@@ -11,11 +11,13 @@ import {
   ChevronDown,
   FileText,
   Download,
+  FileSpreadsheet,
 } from 'lucide-react';
 import toast from 'react-hot-toast';
 import api from '../../services/api';
 import { formatPrice, formatDate, orderStatusMap } from '../../utils/formatters';
 import { downloadOrderInvoicePDF, downloadSalesReportPDF } from '../../utils/pdfGenerator';
+import { exportOrdersToCSV } from '../../utils/csvExporter';
 
 const STATUS_STEPS = [
   'Pending',
@@ -81,7 +83,16 @@ const AdminOrdersPage = () => {
           <p className="text-xs text-stone-500">تتبع الطلبات، تحديث حالات التوصيل، وإصدار الفواتير الرسمية</p>
         </div>
 
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2.5 flex-wrap">
+          <button
+            onClick={() => exportOrdersToCSV(orders)}
+            className="bg-stone-100 hover:bg-stone-200 text-stone-700 text-xs font-bold px-3.5 py-2.5 rounded-xl shadow-xs transition-all flex items-center gap-1.5"
+            title="تصدير جدول الطلبات إلى ملف Excel / CSV"
+          >
+            <FileSpreadsheet size={15} className="text-emerald-600" />
+            <span>تصدير Excel (CSV)</span>
+          </button>
+
           <button
             onClick={() => downloadSalesReportPDF(orders)}
             className="bg-emerald-700 hover:bg-emerald-800 text-white text-xs font-bold px-4 py-2.5 rounded-xl shadow-xs transition-all flex items-center gap-1.5 self-start sm:self-auto"

@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { Users, Shield, ShieldCheck, UserX, UserCheck, Trash2, Search } from 'lucide-react';
+import { Users, Shield, ShieldCheck, UserX, UserCheck, Trash2, Search, FileSpreadsheet } from 'lucide-react';
 import toast from 'react-hot-toast';
 import api from '../../services/api';
 import { formatDate } from '../../utils/formatters';
+import { exportUsersToCSV } from '../../utils/csvExporter';
 
 const AdminUsersPage = () => {
   const [users, setUsers] = useState([]);
@@ -75,15 +76,26 @@ const AdminUsersPage = () => {
           <p className="text-xs text-stone-500">مشاهدة حسابات الزبناء، تعيين المدراء، وإدارة الصلاحيات</p>
         </div>
 
-        <div className="relative w-full sm:w-72">
-          <input
-            type="text"
-            placeholder="بحث بالاسم أو البريد أو الهاتف..."
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full bg-white border border-stone-200 rounded-xl px-4 py-2.5 pl-10 text-xs focus:outline-none focus:border-kenzna-amber shadow-xs"
-          />
-          <Search size={16} className="absolute left-3 top-3 text-stone-400" />
+        <div className="flex items-center gap-3 flex-wrap">
+          <button
+            onClick={() => exportUsersToCSV(users)}
+            className="bg-emerald-700 hover:bg-emerald-800 text-white text-xs font-bold px-3.5 py-2.5 rounded-xl shadow-xs transition-all flex items-center gap-1.5"
+            title="تصدير قائمة العملاء إلى ملف Excel / CSV"
+          >
+            <FileSpreadsheet size={15} />
+            <span>تصدير العملاء (CSV)</span>
+          </button>
+
+          <div className="relative w-full sm:w-72">
+            <input
+              type="text"
+              placeholder="بحث بالاسم أو البريد أو الهاتف..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="w-full bg-white border border-stone-200 rounded-xl px-4 py-2.5 pl-10 text-xs focus:outline-none focus:border-kenzna-amber shadow-xs"
+            />
+            <Search size={16} className="absolute left-3 top-3 text-stone-400" />
+          </div>
         </div>
       </div>
 
