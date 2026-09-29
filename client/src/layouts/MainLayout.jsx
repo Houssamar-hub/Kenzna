@@ -3,6 +3,7 @@ import { Outlet } from 'react-router-dom';
 import Navbar from '../components/common/Navbar';
 import Footer from '../components/common/Footer';
 import CartDrawer from '../components/common/CartDrawer';
+import WhatsAppButton from '../components/common/WhatsAppButton';
 
 const MainLayout = () => {
   const [cartDrawerOpen, setCartDrawerOpen] = useState(false);
@@ -16,6 +17,9 @@ const MainLayout = () => {
       </main>
 
       <Footer />
+
+      {/* Floating WhatsApp Live Order & Support */}
+      <WhatsAppButton />
 
       {/* Slide-over quick cart drawer */}
       <CartDrawer
