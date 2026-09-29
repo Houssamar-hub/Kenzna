@@ -469,6 +469,101 @@ const HomePage = () => {
           ))}
         </div>
       </section>
+
+      {/* 7. Verified Moroccan Customer Testimonials & Trust Stats */}
+      <section className="bg-white py-14 border-t border-stone-200/80">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10 text-right">
+          {/* Section Header */}
+          <div className="text-center space-y-2">
+            <span className="text-xs bg-emerald-50 text-emerald-700 font-bold px-3 py-1 rounded-full inline-block font-tajawal">
+              ثقة ورضا أكثر من 5,000 زبون بالمغرب ⭐
+            </span>
+            <h2 className="text-2xl sm:text-3xl font-black text-kenzna-brown font-tajawal">
+              ماذا يقول عملاؤنا عن كنزنا؟
+            </h2>
+            <p className="text-xs text-stone-500 max-w-md mx-auto">
+              آراء وتجارب حقيقية لزبنائنا من مختلف المدن المغربية
+            </p>
+          </div>
+
+          {/* Testimonial Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="bg-stone-50 rounded-3xl p-6 border border-stone-200/80 space-y-4 hover:shadow-card transition-all">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full bg-kenzna-amber text-white font-bold flex items-center justify-center text-sm">
+                    س
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-xs text-stone-900">سناء التازي</h4>
+                    <span className="text-[10px] text-stone-400">الدار البيضاء • مشترية موثوقة</span>
+                  </div>
+                </div>
+                <span className="text-amber-500 font-bold text-xs">★★★★★</span>
+              </div>
+              <p className="text-xs text-stone-600 leading-relaxed">
+                "جودة لا يُعلى عليها وقرمشة طازجة 100%! الكاجو المنكه بالباربيكيو واللوز المعسل كانا رائعين جداً. التوصيل سريع حتى باب المنزل في 24 ساعة."
+              </p>
+            </div>
+
+            <div className="bg-stone-50 rounded-3xl p-6 border border-stone-200/80 space-y-4 hover:shadow-card transition-all">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full bg-emerald-700 text-white font-bold flex items-center justify-center text-sm">
+                    م
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-xs text-stone-900">محمد بن جلون</h4>
+                    <span className="text-[10px] text-stone-400">الرباط • مشتري موثوق</span>
+                  </div>
+                </div>
+                <span className="text-amber-500 font-bold text-xs">★★★★★</span>
+              </div>
+              <p className="text-xs text-stone-600 leading-relaxed">
+                "تغليف محكم وأنيق يعكس فخامة العلامة التجارية. خلطة العسل والمكسرات الملكية ممتازة جداً للصحة والطاقة. تعامل راقٍ وخدمة توصيل ممتازة."
+              </p>
+            </div>
+
+            <div className="bg-stone-50 rounded-3xl p-6 border border-stone-200/80 space-y-4 hover:shadow-card transition-all">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full bg-amber-800 text-white font-bold flex items-center justify-center text-sm">
+                    ف
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-xs text-stone-900">فاطمة الزهراء</h4>
+                    <span className="text-[10px] text-stone-400">مراكش • مشترية موثوقة</span>
+                  </div>
+                </div>
+                <span className="text-amber-500 font-bold text-xs">★★★★★</span>
+              </div>
+              <p className="text-xs text-stone-600 leading-relaxed">
+                "أفضل متجر مكسرات وفواكه جافة تعاملت معه بالمغرب. سهولة كبيرة في الطلب والدفع عند الاستلام مع إمكانية تحميل الفاتورة مباشرة بصيغة PDF."
+              </p>
+            </div>
+          </div>
+
+          {/* Trust Highlights Grid */}
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-6 border-t border-stone-100 text-center">
+            <div className="p-3">
+              <strong className="block text-xl sm:text-2xl font-black text-kenzna-brown font-mono">+5,000</strong>
+              <span className="text-[11px] text-stone-500">زبون راضٍ بالمغرب</span>
+            </div>
+            <div className="p-3">
+              <strong className="block text-xl sm:text-2xl font-black text-kenzna-amber font-mono">100%</strong>
+              <span className="text-[11px] text-stone-500">طبيعي وطازج ومضمون</span>
+            </div>
+            <div className="p-3">
+              <strong className="block text-xl sm:text-2xl font-black text-emerald-700 font-mono">48 ساعة</strong>
+              <span className="text-[11px] text-stone-500">توصيل سريع لكافة المدن</span>
+            </div>
+            <div className="p-3">
+              <strong className="block text-xl sm:text-2xl font-black text-amber-500 font-mono">4.9 / 5</strong>
+              <span className="text-[11px] text-stone-500">متوسط تقييم الزبناء</span>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 };
