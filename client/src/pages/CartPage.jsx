@@ -93,8 +93,32 @@ const CartPage = () => {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-        {/* Left: Cart Items List */}
+        {/* Left: Cart Items List & Shipping Indicator */}
         <div className="lg:col-span-8 space-y-4">
+          {/* Free Shipping Alert Bar */}
+          <div className="bg-white rounded-3xl p-5 border border-stone-200/80 shadow-soft text-right space-y-2">
+            <div className="flex items-center justify-between text-xs sm:text-sm">
+              <span className="font-bold text-stone-800 flex items-center gap-2">
+                <Truck size={18} className="text-kenzna-amber" />
+                {itemsPrice >= 300 ? (
+                  <span className="text-emerald-700 font-bold">تهانينا! طلبيتك مؤهلة للتوصيل المجاني إلى باب بيتك 🎉</span>
+                ) : (
+                  <span>
+                    أضف منتجات بقيمة <strong className="text-kenzna-amber font-mono font-black">{formatPrice(300 - itemsPrice)}</strong> للاستفادة من <strong>التوصيل المجاني</strong>!
+                  </span>
+                )}
+              </span>
+              <span className="text-xs font-mono font-bold text-stone-500">
+                {Math.min(100, Math.round((itemsPrice / 300) * 100))}%
+              </span>
+            </div>
+            <div className="w-full bg-stone-100 h-2.5 rounded-full overflow-hidden">
+              <div
+                className="bg-gradient-to-r from-kenzna-amber to-emerald-500 h-full rounded-full transition-all duration-500"
+                style={{ width: `${Math.min(100, (itemsPrice / 300) * 100)}%` }}
+              />
+            </div>
+          </div>
           {cartItems.map((item) => (
             <div
               key={`${item.product}-${item.weight}`}

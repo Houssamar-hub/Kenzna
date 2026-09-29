@@ -37,6 +37,33 @@ const CartDrawer = ({ isOpen, onClose }) => {
             </button>
           </div>
 
+          {/* Free Shipping Progress Indicator */}
+          {cartItems.length > 0 && (
+            <div className="bg-amber-50/70 p-3.5 border-b border-amber-100/60 text-right space-y-1.5">
+              <div className="flex items-center justify-between text-xs">
+                <span className="font-bold text-stone-800 flex items-center gap-1.5">
+                  <span>🚚</span>
+                  {itemsPrice >= 300 ? (
+                    <span className="text-emerald-700 font-bold">تهانينا! حصلت على توصيل مجاني 🎉</span>
+                  ) : (
+                    <span>
+                      أضف <strong className="text-kenzna-brown font-mono font-black">{formatPrice(300 - itemsPrice)}</strong> للاستفادة من <strong>الشحن المجاني</strong>
+                    </span>
+                  )}
+                </span>
+                <span className="text-[11px] font-mono text-stone-500 font-bold">
+                  {Math.min(100, Math.round((itemsPrice / 300) * 100))}%
+                </span>
+              </div>
+              <div className="w-full bg-stone-200 h-2 rounded-full overflow-hidden">
+                <div
+                  className="bg-gradient-to-r from-kenzna-amber to-emerald-500 h-full rounded-full transition-all duration-500"
+                  style={{ width: `${Math.min(100, (itemsPrice / 300) * 100)}%` }}
+                />
+              </div>
+            </div>
+          )}
+
           {/* Cart Items List */}
           <div className="flex-1 overflow-y-auto p-5 space-y-4">
             {cartItems.length === 0 ? (
